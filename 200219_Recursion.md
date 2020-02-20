@@ -160,6 +160,7 @@ def f(n):
 ```python
 def f(n, k):
 	if n == k:
+        return
         
     else:
         for i in range(k): # used 를 왼쪽부터 탐색

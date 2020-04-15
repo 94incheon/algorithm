@@ -92,9 +92,57 @@ PHead.next = Node(20)
 
 
 
-
-
 ### - 이중 연결 리스트
+
+1. 코드구현
+
+```python
+class Node:
+    def __init__(self, d=0, p=None, n=None):
+        self.data = d
+        self.prev = p
+        self.next = n
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+
+def addLast(lst, new): # 마지막에 추가
+    if lst.head == None:
+        lst.head = lst.tail = new
+    else:
+        new.prev = lst.tail
+        lst.tail.next = new
+        lst.tail = new
+    lst.size += 1
+
+def printList(lst):
+    if lst.head == None:
+        return 
+    cur = lst.head
+    while cur != None:
+        print(cur.data, end=' ')
+        cur = cur.next
+    print()
+
+    cur = lst.tail
+    while cur != None:
+        print(cur.data, end=' ')
+        cur = cur.prev
+    print()
+
+
+mylist = LinkedList()
+
+arr = [1, 3, 5, 7, 9]
+for val in arr:
+    addLast(mylist, Node(val))
+printList(mylist)
+```
+
+
 
 ### - 원형 연결 리스트
 
